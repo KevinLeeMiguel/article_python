@@ -17,7 +17,7 @@ definitions:
         caches:
           - sonar
         script:
-          - pipe: sonarsource/sonarcloud-scan:0.1.5
+          - pipe: sonarsource/sonarcloud-scan:1.0.1
             variables:
               SONAR_TOKEN: 'd85406b28e59c5eb82d4aa252cfd3e971dae3fb7'
           - pipe: sonarsource/sonarcloud-quality-gate:0.1.3

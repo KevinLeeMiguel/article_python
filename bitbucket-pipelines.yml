@@ -13,7 +13,6 @@ pipelines:
     - step:
         caches:
           - pip
-          - sonar: ~/.sonar/cache  # Caching SonarCloud artifacts will speed up your build
         script: # Modify the commands below to build your repository.
           - pipe: sonarsource/sonarcloud-scan:1.0.1
           - pipe: sonarsource/sonarcloud-quality-gate:0.1.3

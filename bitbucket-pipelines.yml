@@ -28,18 +28,12 @@ definitions:
           - pipe: sonarsource/sonarcloud-scan:1.0.1
             variables:
               SONAR_TOKEN: "d85406b28e59c5eb82d4aa252cfd3e971dae3fb7"
-          - pipe: sonarsource/sonarcloud-quality-gate:0.1.3
-            variables:
-              SONAR_TOKEN: "d85406b28e59c5eb82d4aa252cfd3e971dae3fb7"
 
     - step: &quality-gate-check
         name: Quality gate Check
         caches:
           - sonar
         script:
-          - pipe: sonarsource/sonarcloud-scan:1.0.1
-            variables:
-              SONAR_TOKEN: "d85406b28e59c5eb82d4aa252cfd3e971dae3fb7"
           - pipe: sonarsource/sonarcloud-quality-gate:0.1.3
             variables:
               SONAR_TOKEN: "d85406b28e59c5eb82d4aa252cfd3e971dae3fb7"

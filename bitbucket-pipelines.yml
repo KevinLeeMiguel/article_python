@@ -29,14 +29,11 @@ pipelines:
         caches:
           - pip
         script: # Modify the commands below to build your repository.
-          # - pipe: sonarsource/sonarcloud-scan:1.0.1
-            # variables:
-              # SONAR_TOKEN: "d85406b28e59c5eb82d4aa252cfd3e971dae3fb7"
-          # - pipe: sonarsource/sonarcloud-quality-gate:0.1.3
-            # variables:
-              # SONAR_TOKEN: "d85406b28e59c5eb82d4aa252cfd3e971dae3fb7"
-            #   SONAR_QUALITY_GATE_TIMEOUT: '<int>'  # Optional
           - pip install -r requirements.txt
           - python manage.py test
 
     - step: *build-test-sonarcloud
+  
+  pull-requests:
+    '**':
+      - step: *build-test-sonarcloud

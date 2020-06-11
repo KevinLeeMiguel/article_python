@@ -13,7 +13,7 @@ class TestModels(TestCase):
 
         print('1. MODELS Testing toString article Passed!...')
 
-    def test_str(self):
+    def test_str_fail(self):
         article = Article()
         article.title = 'hello'
         article.description = 'Description'

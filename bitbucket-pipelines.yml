@@ -16,7 +16,10 @@ definitions:
         name: Build, test and analyze on SonarCloud
         caches:
           - sonar
+          - pip
         script:
+          - pip install -r requirements.txt
+          - python manage.py test
           - pipe: sonarsource/sonarcloud-scan:1.0.1
             variables:
               SONAR_TOKEN: 'd85406b28e59c5eb82d4aa252cfd3e971dae3fb7'
@@ -25,13 +28,6 @@ definitions:
               SONAR_TOKEN: "d85406b28e59c5eb82d4aa252cfd3e971dae3fb7"
 pipelines:
   default:
-    - step:
-        caches:
-          - pip
-        script: # Modify the commands below to build your repository.
-          - pip install -r requirements.txt
-          - python manage.py test
-
     - step: *build-test-sonarcloud
   
   pull-requests:

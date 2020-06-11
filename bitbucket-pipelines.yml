@@ -12,18 +12,12 @@ definitions:
   caches:
     sonar: ~/.sonar/cache # Caching SonarCloud artifacts will speed up your build
   steps:
-    - step: &build
-        name: Build
+    - step: &build-and-test
+        name: Build and test
         caches:
           - pip
         script:
           - pip install -r requirements.txt
-
-    - step: &test
-        name: test
-        caches:
-          - pip
-        script:
           - python manage.py test
 
     - step: &scan-sonarcloud
@@ -52,9 +46,8 @@ definitions:
 
 pipelines:
   default:
-    - step: *build
-  test:
-    - step: *test
+    - step: *build-and-test
+
   pull-requests:
     "**":
       - step: *scan-sonarcloud

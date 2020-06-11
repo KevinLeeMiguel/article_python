@@ -119,3 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+TEST_RUNNER = 'xmlrunner.extra.djangotestrunner.XMLTestRunner'
+TEST_OUTPUT_DESCRIPTIONS = True
+TEST_OUTPUT_DIR = BASE_DIR
+TEST_OUTPUT_FILE_NAME = os.path.join(TEST_OUTPUT_DIR, 'test-report.xml')

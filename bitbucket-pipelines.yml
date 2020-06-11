@@ -50,6 +50,5 @@ pipelines:
 
   pull-requests:
     "**":
-      steps:
-        - step: *scan-sonarcloud
-        - step: *quality-gate-check
+      - step: *scan-sonarcloud
+      - step: *quality-gate-check

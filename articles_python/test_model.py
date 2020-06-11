@@ -8,7 +8,7 @@ class TestModels(TestCase):
         article = Article()
         article.title = 'hello'
         article.description = 'Description'
-        expected_object_name = article.title
+        expected_object_name = article.description
         self.assertEquals(expected_object_name, str(article))
 
         print('1. MODELS Testing toString article Passed!...')

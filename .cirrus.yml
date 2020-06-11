@@ -1,5 +1,11 @@
 container:
   image: python:slim
+  additional_containers:
+    - name: mysql
+      image: mysql:latest
+      port: 3306
+      env:
+        MYSQL_ROOT_PASSWORD: ""
 
 check_task:
   pip_cache:

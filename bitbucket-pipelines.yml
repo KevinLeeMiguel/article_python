@@ -13,8 +13,7 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - pip install -r requirements.txt
           - python manage.py test
-
-    - pipe: sonarsource/sonarcloud-quality-gate:0.1.3
-      # variables:
-      #   SONAR_TOKEN: '<string>'  # Optional
-      #   SONAR_QUALITY_GATE_TIMEOUT: '<int>'  # Optional
+          - pipe: sonarsource/sonarcloud-quality-gate:0.1.3
+            # variables:
+            #   SONAR_TOKEN: '<string>'  # Optional
+            #   SONAR_QUALITY_GATE_TIMEOUT: '<int>'  # Optional

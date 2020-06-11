@@ -1,0 +1,8 @@
+container:
+  image: python:slim
+
+check_task:
+  pip_cache:
+    folder: ~/.cache/pip
+    populate_script: pip install -r requirements.txt
+  test_script: python manage.py test
